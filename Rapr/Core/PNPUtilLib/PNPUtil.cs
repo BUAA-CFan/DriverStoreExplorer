@@ -52,7 +52,11 @@ namespace Rapr.Utils
                 for (int i = 0; i < driverStoreEntries.Count; i++)
                 {
                     DriverStoreEntry driverStoreEntry = driverStoreEntries[i];
-                    repository.FindInfInfo(driverStoreEntry.DriverPublishedName, out driverStoreEntry.DriverInfName, out driverStoreEntry.DriverSize);
+                    if(driverStoreEntry.DriverPublishedName)
+                    {
+                        repository.FindInfInfo(driverStoreEntry.DriverPublishedName, out driverStoreEntry.DriverInfName, out driverStoreEntry.DriverSize);
+                    }
+                    
                     driverStoreEntries[i] = driverStoreEntry;
                 }
             }
